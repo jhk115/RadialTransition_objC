@@ -51,6 +51,7 @@
  * @param startFrame where circle start
  */
 -(void)radialPopViewControllerWithDuration:(float)duration withStartFrame:(CGRect)rect  comlititionBlock:(void(^)())block;
+-(void)radialPopToRootViewControllerWithDuration:(float)duration withStartFrame:(CGRect)rect  comlititionBlock:(void(^)())block;
 -(void)radialPopViewControllerWithDuration:(float)duration comlititionBlock:(void(^)())block;
 
 

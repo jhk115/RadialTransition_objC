@@ -106,16 +106,27 @@ static float defaultAnimationTime = 0.33;
     [self popViewControllerAnimated:YES];
        self.delegate = nil;
     return;
+}
+-(void)radialPopToRootViewControllerWithDuration:(float)duration withStartFrame:(CGRect)rect comlititionBlock:(void (^)())block{
     
+    AAPTransitionDirector * a=[[AAPTransitionDirector alloc]init];
     
- 
-    
- 
-    
-    
+    a.duration=duration;
+    a.animBlock=^(id<UIViewControllerContextTransitioning> transitionContext,float time,void(^comlitBlock)() ){
+        
+        UIViewController* toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+        [toViewController.view radialAppireanceWithStartFrame:rect duration:time andComplitBLock:block];
+        
+    };
+    [self setDelegate:a];
+    [self popToRootViewControllerAnimated:YES];
+    self.delegate = nil;
+    return;
 }
 
-#pragma mark - swipe 
+
+
+#pragma mark - swipe
 
 -(void)enableRadialSwipe{
     
